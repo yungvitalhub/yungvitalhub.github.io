@@ -1,0 +1,19 @@
+.social-media {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-media li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.social-media a {
+  color: #ffffff; /* Change to your desired color */
+  font-size: 18px; /* Change to your desired font size */
+}
+
+.social-media a:hover {
+  color: #cccccc; /* Change to your desired hover color */
+}
