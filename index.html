@@ -230,10 +230,11 @@
             box-sizing: border-box;
           }
 
-          .slide img {
-            width: 100%;
-            height: auto;
-          }
+         .slide img {
+           width: 100%;
+           height: auto;
+           max-width: 100%;
+         }
 
           .nav-button {
             position: absolute;
@@ -271,7 +272,27 @@
         </div>
 
         <script>
-          let currentIndex = 0;
+          // Auto slide
+          setInterval(() => nextSlide(), 3000);
+          
+          // Update the showSlide function to handle different image sizes
+          function showSlide(index) {
+            const slides = document.querySelectorAll('.slide');
+            const currentSlide = slides[index];
+            const currentSlideWidth = currentSlide.offsetWidth;
+            document.querySelector('.slides').style.transform = `translateX(${-index * currentSlideWidth}px)`;
+          }
+          
+          // Update the nextSlide and prevSlide functions to handle different image sizes
+          function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            showSlide(currentIndex);
+          }
+          
+          function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            showSlide(currentIndex);
+          }let currentIndex = 0;
           const slides = document.querySelectorAll('.slide');
           const totalSlides = slides.length;
 
